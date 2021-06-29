@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lojaonline/screens/home_screen.dart';
+// ignore: unused_import
+import 'package:lojaonline/screens/login_screen.dart';
 
-main() =>runApp(new MyApp());
+main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,11 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "flutter's Clothing",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color.fromARGB(255, 4, 125, 141)
-      ),
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+          primarySwatch: Colors.blue,
+          primaryColor: Color.fromARGB(255, 4, 125, 141)),
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }
