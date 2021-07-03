@@ -3,6 +3,9 @@ import 'package:lojaonline/models/cart_model.dart';
 import 'package:lojaonline/models/user_model.dart';
 import 'package:lojaonline/screens/login_screen.dart';
 import 'package:lojaonline/tiles/cart_tile.dart';
+import 'package:lojaonline/widgets/cart_price.dart';
+import 'package:lojaonline/widgets/discount_card.dart';
+import 'package:lojaonline/widgets/ship_card.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class CartScreen extends StatelessWidget {
@@ -85,7 +88,13 @@ class CartScreen extends StatelessWidget {
                 children: model.products.map((product) {
                   return CartTile(product);
                 }).toList(),
-              )
+              ),
+              DiscountCard(),
+              ShipCard(),
+              CartPrice(() async {
+                String? orderId = await model.finishOrder();
+                if (orderId != null) print(orderId);
+              })
             ],
           );
         }
