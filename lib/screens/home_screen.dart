@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojaonline/tabs/home_tab.dart';
+import 'package:lojaonline/tabs/orders_tab.dart';
+import 'package:lojaonline/tabs/places_tab.dart';
 import 'package:lojaonline/tabs/products_tab.dart';
 import 'package:lojaonline/widgets/cart_button.dart';
 import 'package:lojaonline/widgets/custom_drawer.dart';
@@ -27,12 +29,23 @@ class HomeScreen extends StatelessWidget {
           body: ProductsTab(),
           floatingActionButton: CartButton(),
         ),
-        Container(
-          color: Colors.blueGrey,
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Lojas"),
+            centerTitle: true,
+          ),
+          body: PlacesTab(),
+          drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
         ),
-        Container(
-          color: Colors.yellowAccent,
-        ),
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Meus Pedidos"),
+            centerTitle: true,
+          ),
+          body: OrdersTab(),
+          drawer: CustomDrawer(_pageController),
+        )
       ],
     );
   }
